@@ -1,0 +1,66 @@
+### Home
+GET http://localhost:5000/
+
+### Health Check
+GET http://localhost:5000/api/health
+
+### Get All Tasks (via /api/tasks)
+GET http://localhost:5000/api/tasks
+
+### Get All Tasks (via /tasks)
+GET http://localhost:5000/tasks
+
+### Get Task Statistics
+GET http://localhost:5000/api/tasks/stats
+
+### Get Single Task
+GET http://localhost:5000/api/tasks/1
+
+### Create New Task
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Complete React project",
+  "description": "Build the frontend for task manager",
+  "priority": "high"
+}
+
+### Create Another Task
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+  "title": "Learn Express",
+  "description": "Study REST API concepts",
+  "priority": "medium"
+}
+
+### Update Task
+PUT http://localhost:5000/api/tasks/1
+Content-Type: application/json
+
+{
+  "completed": true,
+  "priority": "high"
+}
+
+### Delete Task
+DELETE http://localhost:5000/api/tasks/1
+
+### Delete All Tasks
+DELETE http://localhost:5000/api/tasks
+
+### Test Validation (Should fail - no title -> 400 Bad Request)
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+  "description": "No title provided"
+}
+
+### Test Content-Type Validation (Should fail -> 415 Unsupported Media Type)
+POST http://localhost:5000/api/tasks
+Content-Type: text/plain
+
+title=InvalidContentType
